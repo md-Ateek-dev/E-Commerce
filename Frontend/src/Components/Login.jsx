@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const Login = () => {
+  const backend_url = import.meta.env.VITE_BACKEND_URL
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -18,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/user/login", formData);
+      const response = await axios.post(`${backend_url}/login`, formData);
       console.log(response);
       
       if (response.status === 200) {

@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import AddIcon from '@mui/icons-material/Add';
 
 const Leads = () => {
+  const backend_url = import.meta.env.VITE_BACKEND_URL
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lead, setLead] = useState([]);
   const [editLeadId, setEditLeadId] = useState(null);
@@ -41,8 +42,8 @@ const Leads = () => {
 
     try {
       const url = editLeadId
-        ? `http://localhost:3000/lead/leads/edit/${editLeadId}`
-        : `http://localhost:3000/lead/leads/post`;
+        ? `${backend_url}/lead/leads/edit/${editLeadId}`
+        : `${backend_url}/lead/leads/post`;
 
       const method = editLeadId ? 'put' : 'post';
 
@@ -90,7 +91,7 @@ const Leads = () => {
   // Fetch products from the backend
   const fetchProduct = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/lead/leads/get`);
+      const response = await axios.get(`${backend_url}/lead/leads/get`);
       setLead(response.data.leads);
     } catch (error) {
       console.error('Error fetching Product:', error);
@@ -122,7 +123,7 @@ const Leads = () => {
   // Handle delete button click
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/lead/leads/delete/${id}`);
+      const response = await axios.delete(`${backend_url}/lead/leads/delete/${id}`);
       if (response.status === 200) {
         Swal.fire({
           title: 'Success!',
@@ -230,7 +231,7 @@ const Leads = () => {
                     <td className="py-3 px-4 border">
                       {lead.ProductImage ? (
                         <img
-                          src={`http://localhost:3000/uploads/${lead.ProductImage}`}
+                          src={`${backend_url}/uploads/${lead.ProductImage}`}
                           alt={lead.ProductImage}
                           className="w-16 h-16 object-cover"
                         />

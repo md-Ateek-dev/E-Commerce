@@ -29,6 +29,11 @@ app.use('/student', studentsRoutes);
 
 // define the port 
 
+app.get('/',(req,res)=>{
+    res.send('Server is running')
+})
+
+
 const PORT=process.env.PORT || 3000;
 // start the server
 

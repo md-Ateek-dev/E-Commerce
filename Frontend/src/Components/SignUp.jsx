@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import { Link, useNavigate } from 'react-router-dom'
 const SignUp = () => {
     const navigate = useNavigate();
-    
+    const backend_url = import.meta.env.VITE_BACKEND_URL
     const [formData, setFormData] = useState({
         name:"",
         email:"",
@@ -42,7 +42,7 @@ if (formData.Image){
   formDataToSend.append("Image", formData.Image);
 }        
  try {
-const response = await axios.post("http://localhost:3000/user/signup", formDataToSend, {
+const response = await axios.post(`${backend_url}/signup`, formDataToSend, {
   headers: {"Content-Type": "multipart/form-data"},
 });
 if(response.status === 201){
