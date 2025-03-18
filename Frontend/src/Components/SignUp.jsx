@@ -42,7 +42,7 @@ if (formData.Image){
   formDataToSend.append("Image", formData.Image);
 }        
  try {
-const response = await axios.post(`${backend_url}/signup`, formDataToSend, {
+const response = await axios.post(`${backend_url}/user/signup`, formDataToSend, {
   headers: {"Content-Type": "multipart/form-data"},
 });
 if(response.status === 201){

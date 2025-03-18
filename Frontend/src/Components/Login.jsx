@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${backend_url}/login`, formData);
+      const response = await axios.post(`${backend_url}/user/login`, formData);
       console.log(response);
       
       if (response.status === 200) {
