@@ -14,6 +14,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import {useNavigate } from 'react-router-dom';  // Redirect ke liye
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import Leads from './Leads';
+import { Document, Page, Text, View } from '@react-pdf/renderer';
 
 const NAVIGATION = [
   { kind: 'header', title: 'Main items' },
