@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(`${backend_url}/user/login`, formData);
-      console.log(response);
+      // console.log(response);
       
       if (response.status === 200) {
         Swal.fire({
@@ -31,7 +31,7 @@ const Login = () => {
         })
       } 
       // Store token and timestamp in local storage
-      console.log(response.data.token)
+      // console.log(response.data.token)
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("loginTimestamp", Date.now());
       

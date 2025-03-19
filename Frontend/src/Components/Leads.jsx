@@ -51,8 +51,8 @@ const Leads = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
-      console.log("formDataToSend:",formData); // Debugging
-      console.log("Recieved response:",response); // Debugging
+      // console.log("formDataToSend:",formData); // Debugging
+      // console.log("Recieved response:",response); // Debugging
 
       
 
@@ -94,7 +94,7 @@ const Leads = () => {
       const response = await axios.get(`${backend_url}/lead/leads/get`);
       setLead(response.data.leads);
     } catch (error) {
-      console.error('Error fetching Product:', error);
+      // console.error('Error fetching Product:', error);
       Swal.fire({
         title: 'Error',
         text: error.response ? error.response.data.message : 'Network Error or Server Unreachable',
