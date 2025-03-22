@@ -7,7 +7,7 @@ const signupUser = async(req,res)=>{
     try{
 
         const {name,email,password}=req.body;
-        const image = req.file ? `http:localhost:3000/uploads/${req.file.filename}` : 'null';
+        const image = req.file ? req.file.filename : 'null';
         const user= new User({name,email,password,Image:image});
         await user.save();
         res.status(201).json({message:"User Signup successfully!", user: user});

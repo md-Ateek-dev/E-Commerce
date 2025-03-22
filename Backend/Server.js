@@ -7,6 +7,7 @@ const userRoutes = require('./Routes/UserRoutes')
 const leadRoutes = require('./Routes/LeadRoutes')
 const path= require("path");
 const studentsRoutes = require('./Routes/StudentsRoutes');
+const sliderRoutes = require ('./Routes/SliderRoutes');
 
 // load enviroment variable;
 dotenv.config();
@@ -26,6 +27,7 @@ app.use ('/uploads',express.static('uploads'));
 app.use('/user',userRoutes);
 app.use('/lead', leadRoutes);
 app.use('/student', studentsRoutes);
+app.use('/slider', sliderRoutes);
 
 // define the port 
 
